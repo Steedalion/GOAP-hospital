@@ -2,6 +2,8 @@
 
 ## Project Description:
 
+This project displays goal orientated action planning. 
+
 ## Screenshots
 
 

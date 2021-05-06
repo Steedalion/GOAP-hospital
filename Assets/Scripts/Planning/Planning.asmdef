@@ -1,3 +1,16 @@
 {
-	"name": "Planning"
+    "name": "Planning",
+    "rootNamespace": "",
+    "references": [
+        "GUID:5c3586b65daca564da9e04eb7e9165b4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

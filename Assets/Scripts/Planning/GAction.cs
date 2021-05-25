@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public abstract class GAction : MonoBehaviour
 {
-    public string actionName;
+    public string actionName = "Action";
 
     public float cost = 1;
 
@@ -24,15 +24,7 @@ public abstract class GAction : MonoBehaviour
     public bool running = false;
     public NavMeshAgent agent;
 
-    public virtual bool PrePerform()
-    {
-        throw new NotImplementedException();
-    }
 
-    public virtual bool PostPerform()
-    {
-        throw new NotImplementedException();
-    }
 
 
     protected GAction()
@@ -49,7 +41,7 @@ public abstract class GAction : MonoBehaviour
         {
             foreach (WorldState condition in preConditions)
             {
-                preconditions.Add(condition.name, condition.value);
+                preconditions.Add(condition.key, condition.value);
             }
         }
 
@@ -57,17 +49,17 @@ public abstract class GAction : MonoBehaviour
         {
             foreach (WorldState condition in postConditions)
             {
-                effects.Add(condition.name, condition.value);
+                effects.Add(condition.key, condition.value);
             }
         }
     }
 
-    public bool isAchievable()
+    public bool IsAchievable()
     {
         return true;
     }
 
-    public bool isAchievableGiven(Dictionary<string, int> currentCondition)
+    public bool IsAchievableGiven(Dictionary<string, int> currentCondition)
     {
         foreach (KeyValuePair<string, int> precondition in preconditions)
         {
@@ -80,5 +72,6 @@ public abstract class GAction : MonoBehaviour
         return true;
     }
 
- 
+    public abstract bool PrePerform();
+    public abstract bool PostPerform();
 }

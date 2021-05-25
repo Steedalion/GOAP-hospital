@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace Planning
 {
@@ -6,7 +7,7 @@ namespace Planning
     [System.Serializable]
     public class WorldState
     {
-        public string name;
+        [FormerlySerializedAs("name")] public string key;
         public int value;
     }
     public class WorldStates
@@ -58,6 +59,11 @@ namespace Planning
         public double GetValue(string stateName)
         {
             return States[stateName];
+        }
+        
+         public Dictionary<string, int> GetStates()
+        {
+            return States;
         }
     }
 }

@@ -5,11 +5,11 @@ using Planning;
 using UnityEditor;
 using UnityEngine;
 
-public class Gplanner : MonoBehaviour
+public class Gplanner 
 {
     public Queue<GAction> plan(List<GAction> actions, Dictionary<string, int> goal, WorldStates states)
     {
-        List<GAction> usableActions = actions.Where(gAction => gAction.isAchievable()).ToList();
+        List<GAction> usableActions = actions.Where(gAction => gAction.IsAchievable()).ToList();
 
         List<Node> leaves = new List<Node>();
         Node start = new Node(parent: null, cost: 0, GWorld.Instance().WorldStates.States, action: null);
@@ -30,7 +30,7 @@ public class Gplanner : MonoBehaviour
         //GetParentList
         List<GAction> result = new List<GAction>();
         Node n = cheapest;
-        while (n.action != null)
+        while (n != null)
         {
             if (n.action != null)
             {
@@ -61,7 +61,7 @@ public class Gplanner : MonoBehaviour
 
         foreach (GAction action in usableActions)
         {
-            if (action.isAchievableGiven(parent.state))
+            if (action.IsAchievableGiven(parent.state))
             {
                 Dictionary<string, int> currentState = new Dictionary<string, int>(parent.state);
                 foreach (KeyValuePair<string, int> effect in action.effects)
@@ -89,7 +89,18 @@ public class Gplanner : MonoBehaviour
 
         return foundPath;
     }
-
+  private bool GoalAchieved(Dictionary<string, int> goal, Dictionary<string, int> currentState)
+    {
+        foreach (KeyValuePair<string, int> pair in goal)
+        {
+            if (!currentState.ContainsKey(pair.Key))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+  
     private List<GAction> ActionSubset(List<GAction> usableActions, GAction removeMe)
     {
         List<GAction> subset = new List<GAction>();
@@ -100,22 +111,10 @@ public class Gplanner : MonoBehaviour
                 subset.Add(a);
             }
         }
-
         return subset;
     }
 
-    private bool GoalAchieved(Dictionary<string, int> goal, Dictionary<string, int> currentState)
-    {
-        foreach (KeyValuePair<string, int> pair in goal)
-        {
-            if (!currentState.ContainsKey(pair.Key))
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
+  
 
 
     private static Node FindCheapestLeaf(List<Node> leaves)

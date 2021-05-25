@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Planning;
 using UnityEngine;
 using UnityEngine.AI;
 
 public abstract class GAction : MonoBehaviour
 {
-    public string actionName = "Action";
+    public string actionName =  "Action";
 
     public float cost = 1;
 
@@ -31,12 +32,13 @@ public abstract class GAction : MonoBehaviour
     {
         preconditions = new Dictionary<string, int>();
         effects = new Dictionary<string, int>();
+        actionName =  this.GetType().Name;
     }
 
-    private void Awake()
+    public void Awake()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-
+actionName =  this.GetType().Name;
         if (preConditions != null)
         {
             foreach (WorldState condition in preConditions)
@@ -61,9 +63,11 @@ public abstract class GAction : MonoBehaviour
 
     public bool IsAchievableGiven(Dictionary<string, int> currentCondition)
     {
+        //TODO: Test this.
+
         foreach (KeyValuePair<string, int> precondition in preconditions)
         {
-            if (currentCondition.ContainsKey(precondition.Key))
+            if (!currentCondition.ContainsKey(precondition.Key))
             {
                 return false;
             }

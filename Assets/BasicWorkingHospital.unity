@@ -4462,6 +4462,66 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2079217331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079217328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16551a46010a44b1bd51f3d065a4142e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Hosp
+  cost: 1
+  duration: 0
+  target: {fileID: 0}
+  targetTag: Door
+  preConditions:
+  - key: hasArrived
+    value: 0
+  postConditions:
+  - key: isWaiting
+    value: 0
+  running: 0
+  agent: {fileID: 0}
+--- !u!114 &2079217332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079217328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79209392b567e4f4eb3422e8d656b396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2079217333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079217328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91be5d326cc5ff44697f4b09a67c2434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Action
+  cost: 1
+  duration: 0
+  target: {fileID: 0}
+  targetTag: WaitingArea
+  preConditions: []
+  postConditions:
+  - key: hasArrived
+    value: 0
+  running: 0
+  agent: {fileID: 0}
 --- !u!1 &2105955016
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Planning;
+using Planning.PlanningEditTests;
 using UnityEngine;
 
 public class GoToWaitingRoom : GAction
@@ -11,6 +13,8 @@ public class GoToWaitingRoom : GAction
 
     public override bool PostPerform()
     {
+        GWorld.Instance().WorldStates.IncrementState("Waiting",1);
+        PatientQueue.Instance().Add(GetComponent<Patient>());
         return true;
     }
 }

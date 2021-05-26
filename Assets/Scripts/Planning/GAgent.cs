@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class GAgent : MonoBehaviour
 {
-    private List<GAction> actions = new List<GAction>();
-    protected Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
+    public List<GAction> actions = new List<GAction>();
+    public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
 
     private Gplanner planner;
     private Queue<GAction> actionQ;
-    private GAction currentAction;
+    public GAction currentAction;
     private SubGoal currentSubgoal;
     private bool invoked;
 

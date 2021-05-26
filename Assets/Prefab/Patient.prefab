@@ -2663,6 +2663,7 @@ GameObject:
   - component: {fileID: 2079217332}
   - component: {fileID: 2079217333}
   - component: {fileID: 2079217334}
+  - component: {fileID: 2079217335}
   m_Layer: 0
   m_Name: Patient
   m_TagString: Untagged
@@ -2721,7 +2722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Hosp
   cost: 1
-  duration: 2
+  duration: 1
   target: {fileID: 0}
   targetTag: Door
   preConditions: []
@@ -2742,6 +2743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79209392b567e4f4eb3422e8d656b396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actions: []
+  currentAction: {fileID: 0}
 --- !u!114 &2079217333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2781,7 +2784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Register
   cost: 1
-  duration: 3
+  duration: 1
   target: {fileID: 0}
   targetTag: Reception
   preConditions:
@@ -2792,6 +2795,19 @@ MonoBehaviour:
     value: 0
   running: 0
   agent: {fileID: 0}
+--- !u!114 &2079217335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881807149238628900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341c408caaf07b14abf89d00306292a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAgent: {fileID: 2079217332}
 --- !u!1 &7927236269272520591
 GameObject:
   m_ObjectHideFlags: 0

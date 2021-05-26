@@ -6,6 +6,7 @@ public class Register : GAction
 {
     public override bool PrePerform()
     {
+        Debug.Log("Register Entered");
         return true;
     }
 

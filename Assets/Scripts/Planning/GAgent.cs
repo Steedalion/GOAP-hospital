@@ -41,6 +41,8 @@ public class GAgent : MonoBehaviour
                     invoked = true;
                 }
             }
+
+
             return;
         }
 
@@ -79,14 +81,17 @@ public class GAgent : MonoBehaviour
                 if (currentAction.target == null && currentAction.targetTag != "")
                 {
                     currentAction.target = GameObject.FindWithTag(currentAction.targetTag);
-                    Debug.Log("Selected object"+currentAction.target);
                 }
 
                 if (currentAction.target != null)
                 {
                     currentAction.running = true;
                     currentAction.agent.SetDestination(currentAction.target.transform.position);
-                    Debug.Log("Selected object"+currentAction.target);
+                    Debug.Log("Selected object" + currentAction.target);
+                }
+                else
+                {
+                    Debug.LogError("No object found");
                 }
             }
             else

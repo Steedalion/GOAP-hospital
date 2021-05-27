@@ -577,7 +577,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: FULLSCREEN_DEBUG
+    1: FULLSCREEN_DEBUG;UCONTEXT;UCONTEXT_PRO
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

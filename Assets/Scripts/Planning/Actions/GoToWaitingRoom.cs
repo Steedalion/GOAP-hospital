@@ -14,7 +14,7 @@ public class GoToWaitingRoom : GAction
     public override bool PostPerform()
     {
         GWorld.Instance().WorldStates.IncrementState("Waiting",1);
-        PatientQueue.Instance().Add(GetComponent<Patient>());
+        PatientQueue.Instance().MyQueue.Add(GetComponent<Patient>());
         return true;
     }
 }

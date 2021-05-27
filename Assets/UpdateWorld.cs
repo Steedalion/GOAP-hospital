@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Planning;
+using Planning.PlanningEditTests;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,8 @@ public class UpdateWorld : MonoBehaviour
         foreach (KeyValuePair<string,int> keyValuePair in worldstates)
         {
             states.text += keyValuePair.Key + " , " + keyValuePair.Value;
+            states.text += "\n";
+            states.text +=  "Cubicles , " + CubicleResources.Instance().MyQueue.Size();
         }
         
     }

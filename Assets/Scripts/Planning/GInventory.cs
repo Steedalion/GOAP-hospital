@@ -36,12 +36,12 @@ namespace Planning
                 if (resource == it)
                     break;
             }
-            if(indexToRemove >=-1)
+            if(indexToRemove >-1)
             {
                 items.RemoveAt(indexToRemove);
                 return;
             }
-            if (indexToRemove > Size) throw new NotInInventory();
+            throw new NotInInventory();
         }
 
 

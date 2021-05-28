@@ -33,15 +33,6 @@ namespace Planning.PlanningEditTests
         }
     }
 
-    public class PatientQueue : Singleton<PatientQueue>
-    {
-        private readonly MyQueue<Patient> myQueue = new MyQueue<Patient>();
-
-        public MyQueue<Patient> MyQueue
-        {
-            get { return myQueue; }
-        }
-    }
     public class CubicleResources : Singleton<CubicleResources>
     {
         private readonly MyQueue<Cubicle> myQueue = new MyQueue<Cubicle>();

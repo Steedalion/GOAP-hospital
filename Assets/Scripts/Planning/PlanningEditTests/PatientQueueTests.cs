@@ -8,71 +8,71 @@ namespace Planning.PlanningEditTests
     {
         private GameObject gameObject;
         private Patient patient1 = new Patient(), patient = new Patient();
-        private PatientQueue patientQueue = PatientQueue.Instance();
+        private MyQueue<Patient> patientQueue = new MyQueue<Patient>();
 
         [SetUp]
         public void CreateNew()
         {
-            patientQueue.MyQueue.Reset();
+            patientQueue.Reset();
         }
 
 
         [Test]
         public void ShouldNotBeNull()
         {
-            Assert.IsNotNull(PatientQueue.Instance());
+            Assert.IsNotNull(patientQueue);
         }
 
         [Test]
         public void NewQueueShouldBeEmpty()
         {
-            patientQueue.MyQueue.Reset();
-            Assert.AreEqual(0, patientQueue.MyQueue.Size());
+            patientQueue.Reset();
+            Assert.AreEqual(0, patientQueue.Size());
         }
 
         [Test]
         public void AddingSinglePatientShouldHaveSize1()
         {
-            patientQueue.MyQueue.Add(patient);
-            Assert.AreEqual(1, patientQueue.MyQueue.Size());
+            patientQueue.Add(patient);
+            Assert.AreEqual(1, patientQueue.Size());
         }
 
         [Test]
         public void AddingSinglePatientShouldHaveSize2()
         {
-            patientQueue.MyQueue.Add(patient);
-            patientQueue.MyQueue.Add(patient1);
-            Assert.AreEqual(2, patientQueue.MyQueue.Size());
+            patientQueue.Add(patient);
+            patientQueue.Add(patient1);
+            Assert.AreEqual(2, patientQueue.Size());
         }
 
 
         [Test]
         public void RemovingPatientShouldReturnValue()
         {
-            patientQueue.MyQueue.Add(patient);
-            Assert.AreEqual(patient, patientQueue.MyQueue.RemovePatient());
+            patientQueue.Add(patient);
+            Assert.AreEqual(patient, patientQueue.RemovePatient());
         }
 
         [Test]
         public void RemovingPatientShouldDecreaseSize()
         {
-            patientQueue.MyQueue.Add(patient);
-            patientQueue.MyQueue.Add(patient1);
-            patientQueue.MyQueue.RemovePatient();
-            Assert.AreEqual(1, patientQueue.MyQueue.Size());
+            patientQueue.Add(patient);
+            patientQueue.Add(patient1);
+            patientQueue.RemovePatient();
+            Assert.AreEqual(1, patientQueue.Size());
         }
         [Test]
         public void RemovingLastPatientShouldDecreaseSize()
         {
-            patientQueue.MyQueue.Add(patient);
-            patientQueue.MyQueue.RemovePatient();
-            Assert.AreEqual(0, patientQueue.MyQueue.Size());
+            patientQueue.Add(patient);
+            patientQueue.RemovePatient();
+            Assert.AreEqual(0, patientQueue.Size());
         }
 
         [Test]
         public void RemovingPatientFromEmptyListShouldThrowException()
         {
-            Assert.Throws<EmptyQueue>(() =>patientQueue.MyQueue.RemovePatient());
+            Assert.Throws<EmptyQueue>(() =>patientQueue.RemovePatient());
         }
     }
 

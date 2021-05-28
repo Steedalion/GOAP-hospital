@@ -6,7 +6,7 @@ namespace Planning.Actions
     {
         public override bool PrePerform()
         {
-            target = PatientQueue.Instance().MyQueue.RemovePatient().gameObject;
+            target = GWorld.Instance().PatientQueue.RemovePatient().gameObject;
             return true;
         }
 

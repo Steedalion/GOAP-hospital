@@ -27,7 +27,10 @@ public class UpdateWorld : MonoBehaviour
         {
             states.text += keyValuePair.Key + " , " + keyValuePair.Value;
             states.text += "\n";
-            states.text +=  "Cubicles , " + CubicleResources.Instance().MyQueue.Size();
+            states.text +=  "Patients , " + GWorld.Instance().PatientQueue.Size();
+            states.text += "\n";
+            states.text +=  "Cubicles , " + GWorld.Instance().CubicleQueue.Size();
+            states.text += "\n";
         }
         
     }

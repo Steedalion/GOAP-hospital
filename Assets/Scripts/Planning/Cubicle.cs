@@ -7,7 +7,7 @@ namespace Planning.PlanningEditTests
     {
         private void Start()
         {
-            CubicleResources.Instance().MyQueue.Add(this);
+            GWorld.Instance().CubicleQueue.Add(this);
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityToolbox.Tools;
 
 namespace Planning.PlanningEditTests
 {
@@ -32,18 +31,7 @@ namespace Planning.PlanningEditTests
             return queue.Dequeue();
         }
     }
-
-    public class CubicleResources : Singleton<CubicleResources>
-    {
-        private readonly MyQueue<Cubicle> myQueue = new MyQueue<Cubicle>();
-
-        public MyQueue<Cubicle> MyQueue
-        {
-            get { return myQueue; }
-        }
-    }
-
-    public class EmptyQueue : Exception
+        public class EmptyQueue : Exception
     {
     }
 }

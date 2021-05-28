@@ -1096,7 +1096,7 @@ MonoBehaviour:
   targetTag: WaitingArea
   preConditions:
   - key: Waiting
-    value: 0
+    value: 1
   postConditions:
   - key: treatPatient
     value: 0

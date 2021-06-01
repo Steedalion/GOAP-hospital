@@ -8,11 +8,14 @@ namespace Planning
         public MyQueue<Patient> PatientQueue;
         public MyQueue<Cubicle> CubicleQueue;
 
-        public void UpdateStates()
+        private string patientsKey = "Patients";
+        private string cubicleKey = "Cubicles";
+        
+
+        private void UpdateStates()
         {
-            WorldStates.States["Patients"] = PatientQueue.Size();
-            WorldStates.States["Cubicle"] = CubicleQueue.Size();
-            // WorldStates.States.
+            WorldStates.UpdateState(patientsKey,  PatientQueue.Size());
+            WorldStates.UpdateState(cubicleKey, CubicleQueue.Size());
         }
 
 

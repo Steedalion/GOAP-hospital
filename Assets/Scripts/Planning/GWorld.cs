@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Planning.PlanningEditTests;
-using UnityToolbox.Tools;
+﻿using UnityToolbox.Tools;
 
 namespace Planning
 {
@@ -10,12 +8,21 @@ namespace Planning
         public MyQueue<Patient> PatientQueue;
         public MyQueue<Cubicle> CubicleQueue;
 
+        public void UpdateStates()
+        {
+            WorldStates.States["Patients"] = PatientQueue.Size();
+            WorldStates.States["Cubicle"] = CubicleQueue.Size();
+            // WorldStates.States.
+        }
+
 
         public GWorld()
         {
             WorldStates = new WorldStates();
             PatientQueue = new MyQueue<Patient>();
             CubicleQueue = new MyQueue<Cubicle>();
+            PatientQueue.onUpdate += UpdateStates;
+            CubicleQueue.onUpdate += UpdateStates;
         }
     }
 }

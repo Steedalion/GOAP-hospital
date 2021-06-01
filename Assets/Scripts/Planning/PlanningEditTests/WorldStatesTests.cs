@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Planning.PlanningEditTests
 {
@@ -12,6 +13,12 @@ namespace Planning.PlanningEditTests
         public void CreateWorldState()
         {
             worldStates = new WorldStates();
+        }
+        
+        [TearDown]
+        public void DestroyWorldState()
+        {
+            worldStates = null;
         }
 
         [Test]
@@ -47,13 +54,19 @@ namespace Planning.PlanningEditTests
         }
 
         [Test]
+        public void AddExistingStateShouldThrowError()
+        {
+            worldStates.AddState(basicState, 1);
+            Assert.Throws<ArgumentException>(() => { worldStates.AddState(basicState, 1); });
+        }
+
+        [Test]
         public void ModifyingWorldShouldIncreaseValue()
         {
             worldStates.AddState(basicState, 5);
             worldStates.IncrementState(basicState, 1);
             Assert.AreEqual(6, worldStates.GetValue(basicState));
         }
-        
 
         [Test]
         public void IncrementingANonExistingStateWork()
@@ -66,14 +79,16 @@ namespace Planning.PlanningEditTests
         public void NegativeIncrementZeroSumRemovesKey()
         {
             worldStates.AddState(basicState, 5);
-                        Assert.IsTrue(worldStates.HasState(basicState));
+            Assert.IsTrue(worldStates.HasState(basicState));
             worldStates.IncrementState(basicState, -5);
             Assert.IsFalse(worldStates.HasState(basicState));
-        }[Test]
+        }
+
+        [Test]
         public void NegativeIncrementRemovesKey()
         {
             worldStates.AddState(basicState, 5);
-                        Assert.IsTrue(worldStates.HasState(basicState));
+            Assert.IsTrue(worldStates.HasState(basicState));
             worldStates.IncrementState(basicState, -6);
             Assert.IsFalse(worldStates.HasState(basicState));
         }
@@ -91,5 +106,21 @@ namespace Planning.PlanningEditTests
         {
             worldStates.RemoveState(basicState);
         }
+        
+         [Test]
+        public void UpdateShouldCreateNewValue()
+        {
+            worldStates.UpdateState(basicState,10);
+            Assert.AreEqual(10, worldStates.States[basicState]);
+        }
+
+        [Test]
+        public void UpdateShouldChangeExistingValue()
+        {
+            worldStates.UpdateState(basicState, 10);
+            worldStates.UpdateState(basicState, 5);
+            Assert.AreEqual(5, worldStates.States[basicState]);
+        }
+        
     }
 }

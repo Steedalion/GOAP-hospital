@@ -1,37 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Planning.PlanningEditTests
+namespace Planning
 {
     public class MyQueue<T>
     {
-        private static Queue<T> queue = new Queue<T>();
+        private Queue<T> thisQueue = new Queue<T>();
+
+        public delegate void OnEvent();
+
+        public OnEvent onUpdate;
+
 
         public void Add(T element)
         {
-            queue.Enqueue(element);
+            thisQueue.Enqueue(element);
+            onUpdate?.Invoke();
         }
 
         public int Size()
         {
-            return queue.Count;
+            return thisQueue.Count;
         }
 
-        public void Reset()
+        public void ClearQueueNotEvents()
         {
-            queue.Clear();
+            thisQueue.Clear();
+            thisQueue = new Queue<T>();
+            onUpdate?.Invoke();
         }
 
-        public T RemovePatient()
+        public T Remove()
         {
             if (Size() == 0)
             {
                 throw new EmptyQueue();
             }
-            return queue.Dequeue();
+            onUpdate?.Invoke();
+            return thisQueue.Dequeue();
         }
     }
-        public class EmptyQueue : Exception
+
+    public class EmptyQueue : Exception
     {
     }
 }

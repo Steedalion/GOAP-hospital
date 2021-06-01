@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Planning.PlanningEditTests
+namespace Planning
 {
     public class Cubicle: MonoBehaviour, GResource
     {

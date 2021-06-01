@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Planning.PlanningEditTests;
+using UnityEditor.VersionControl;
 using UnityEngine.Serialization;
 
 namespace Planning
@@ -14,7 +14,6 @@ namespace Planning
     public class WorldStates
     {
         public Dictionary<string,int> States { get; }
-
 
         public WorldStates()
         {
@@ -66,5 +65,10 @@ namespace Planning
         {
             return States;
         }
+
+         public void UpdateState(string basicState, int i)
+         {
+                 States[basicState] = i;
+         }
     }
 }

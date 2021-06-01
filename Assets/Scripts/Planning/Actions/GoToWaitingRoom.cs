@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Planning;
-using Planning.PlanningEditTests;
 using UnityEngine;
 
 public class GoToWaitingRoom : GAction

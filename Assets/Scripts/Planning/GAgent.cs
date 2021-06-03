@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Planning;
 using UnityEngine;
 
 public class GAgent : MonoBehaviour
 {
     public List<GAction> actions = new List<GAction>();
     public Dictionary<SubGoal, int> goals = new Dictionary<SubGoal, int>();
+    public readonly GInventory Inventory = new GInventory();
 
+    public WorldStates beliefs = new WorldStates();
     private Gplanner planner;
     private Queue<GAction> actionQ;
     public GAction currentAction;
@@ -54,7 +57,7 @@ public class GAgent : MonoBehaviour
 
             foreach (KeyValuePair<SubGoal, int> sg in sorted)
             {
-                actionQ = planner.plan(actions, sg.Key.sgoal, null);
+                actionQ = planner.plan(actions, sg.Key.sgoal, beliefs);
                 if (actionQ != null)
                 {
                     currentSubgoal = sg.Key;

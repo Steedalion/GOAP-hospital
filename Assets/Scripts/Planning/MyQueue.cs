@@ -39,6 +39,11 @@ namespace Planning
             onUpdate?.Invoke();
             return thisQueue.Dequeue();
         }
+
+        public bool IsEmpty()
+        {
+            return Size() < 1;
+        }
     }
 
     public class EmptyQueue : Exception

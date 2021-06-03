@@ -5,27 +5,29 @@ namespace Planning
     public class GWorld : Singleton<GWorld>
     {
         public WorldStates WorldStates { get; }
-        public MyQueue<Patient> PatientQueue;
-        public MyQueue<Cubicle> CubicleQueue;
+        public MyQueue<Patient> Waiting;
+        public MyQueue<Patient> isTreated;
+        public MyQueue<Cubicle> Cubicles;
 
-        private string patientsKey = "Patients";
-        private string cubicleKey = "Cubicles";
         
 
         private void UpdateStates()
         {
-            WorldStates.UpdateState(patientsKey,  PatientQueue.Size());
-            WorldStates.UpdateState(cubicleKey, CubicleQueue.Size());
+            WorldStates.UpdateState(nameof(Waiting),  Waiting.Size());
+            WorldStates.UpdateState(nameof(Cubicles), Cubicles.Size());
+            WorldStates.UpdateState(nameof(isTreated), isTreated.Size());
         }
 
 
         public GWorld()
         {
             WorldStates = new WorldStates();
-            PatientQueue = new MyQueue<Patient>();
-            CubicleQueue = new MyQueue<Cubicle>();
-            PatientQueue.onUpdate += UpdateStates;
-            CubicleQueue.onUpdate += UpdateStates;
+            Waiting = new MyQueue<Patient>();
+            Cubicles = new MyQueue<Cubicle>();
+            isTreated = new MyQueue<Patient>();
+            Waiting.onUpdate += UpdateStates;
+            Cubicles.onUpdate += UpdateStates;
+            isTreated.onUpdate += UpdateStates;
         }
     }
 }

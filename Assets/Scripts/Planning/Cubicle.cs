@@ -6,7 +6,7 @@ namespace Planning
     {
         private void Start()
         {
-            GWorld.Instance().CubicleQueue.Add(this);
+            GWorld.Instance().Cubicles.Add(this);
         }
     }
 }

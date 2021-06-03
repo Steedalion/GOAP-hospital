@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public abstract class GAction : MonoBehaviour
 {
-    public string actionName =  "Action";
+    public string actionName = "Action";
 
     public float cost = 1;
 
@@ -24,21 +24,22 @@ public abstract class GAction : MonoBehaviour
     public WorldStates agentBeliefs;
     public bool running = false;
     public NavMeshAgent agent;
-
-
+    public GInventory inventory;
 
 
     protected GAction()
     {
         preconditions = new Dictionary<string, int>();
         effects = new Dictionary<string, int>();
-        actionName =  this.GetType().Name;
+        actionName = this.GetType().Name;
     }
 
     public void Awake()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
-actionName =  this.GetType().Name;
+        agentBeliefs = GetComponent<GAgent>().beliefs;
+        actionName = this.GetType().Name;
+        inventory = GetComponent<GAgent>().Inventory;
         if (preConditions != null)
         {
             foreach (WorldState condition in preConditions)

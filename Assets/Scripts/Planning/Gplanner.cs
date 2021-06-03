@@ -5,14 +5,14 @@ using Planning;
 using UnityEditor;
 using UnityEngine;
 
-public class Gplanner 
+public class Gplanner
 {
-    public Queue<GAction> plan(List<GAction> actions, Dictionary<string, int> goal, WorldStates states)
+    public Queue<GAction> plan(List<GAction> actions, Dictionary<string, int> goal, WorldStates beliefStates)
     {
         List<GAction> usableActions = actions.Where(gAction => gAction.IsAchievable()).ToList();
 
         List<Node> leaves = new List<Node>();
-        Node start = new Node(parent: null, cost: 0, GWorld.Instance().WorldStates.States, action: null);
+        Node start = new Node(parent: null, cost: 0, GWorld.Instance().WorldStates.States, beliefStates.States, null);
 
         bool success = BuildGraph(start, leaves, usableActions, goal);
         //TODO: Leaves is an output;
@@ -61,9 +61,9 @@ public class Gplanner
 
         foreach (GAction action in usableActions)
         {
-            if (action.IsAchievableGiven(parent.state))
+            if (action.IsAchievableGiven(parent.WorldState))
             {
-                Dictionary<string, int> currentState = new Dictionary<string, int>(parent.state);
+                Dictionary<string, int> currentState = new Dictionary<string, int>(parent.WorldState);
                 foreach (KeyValuePair<string, int> effect in action.effects)
                 {
                     if (!currentState.ContainsKey(effect.Key))
@@ -89,7 +89,8 @@ public class Gplanner
 
         return foundPath;
     }
-  private bool GoalAchieved(Dictionary<string, int> goal, Dictionary<string, int> currentState)
+
+    private bool GoalAchieved(Dictionary<string, int> goal, Dictionary<string, int> currentState)
     {
         foreach (KeyValuePair<string, int> pair in goal)
         {
@@ -98,9 +99,10 @@ public class Gplanner
                 return false;
             }
         }
+
         return true;
     }
-  
+
     private List<GAction> ActionSubset(List<GAction> usableActions, GAction removeMe)
     {
         List<GAction> subset = new List<GAction>();
@@ -111,10 +113,9 @@ public class Gplanner
                 subset.Add(a);
             }
         }
+
         return subset;
     }
-
-  
 
 
     private static Node FindCheapestLeaf(List<Node> leaves)

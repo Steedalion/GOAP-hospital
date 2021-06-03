@@ -95,7 +95,7 @@ namespace Planning.PlanningEditTests
             queue.onUpdate += ExecuteCommand;
             Assert.IsFalse(executed);
         }
-        
+
         [Test]
         public void UpdateAddedLaterShouldNotExecute()
         {
@@ -103,6 +103,7 @@ namespace Planning.PlanningEditTests
             queue.onUpdate += ExecuteCommand;
             Assert.IsFalse(executed);
         }
+
         [Test]
         public void AddingShouldInvokeUpdate()
         {
@@ -135,6 +136,27 @@ namespace Planning.PlanningEditTests
             queue.onUpdate += ExecuteCommand;
             queue.ClearQueueNotEvents();
             Assert.IsTrue(executed);
+        }
+
+        [Test]
+        public void NewIsEmpty()
+        {
+            Assert.IsTrue(queue.IsEmpty());
+        }
+
+        [Test]
+        public void AddedNotEmpty()
+        {
+            queue.Add(patient);
+            Assert.IsFalse(queue.IsEmpty());
+        }
+
+        [Test]
+        public void AddedAndRemovedIsEmpty()
+        {
+            queue.Add(patient);
+            queue.Remove();
+            Assert.IsTrue(queue.IsEmpty());
         }
     }
 }

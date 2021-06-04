@@ -643,37 +643,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 453314763, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: preConditions.Array.data[0].key
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 453314763, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: postConditions.Array.data[0].key
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2079217329, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
       propertyPath: m_Speed
-      value: 13.04
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2079217329, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 99999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079217331, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: postConditions.Array.data[0].key
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079217333, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: preConditions.Array.data[0].key
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079217334, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: preConditions.Array.data[0].key
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079217334, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: postConditions.Array.data[0].key
-      value: 3
+      propertyPath: m_Acceleration
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7880970886039044016, guid: d36c43225f9391e4c8810c98eb7ef85e,
         type: 3}
@@ -1088,29 +1064,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1562848784}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &763710488
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763710487}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &763710490
+--- !u!114 &763710493
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1119,51 +1073,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 763710487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9779f096bb3d405d9e1e651d433362bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c1fc0dc539444a4cb753a2172449436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: GetPatient
+  actionName: TreatPatient
   cost: 1
-  duration: 1
+  duration: 0
   target: {fileID: 0}
-  targetTag: WaitingArea
+  targetTag: 
   preConditions:
-  - key: 6
-    value: 1
-  - key: 2
-    value: 1
+  - key: 8
+    value: 0
   postConditions:
   - key: 5
     value: 0
   running: 0
   agent: {fileID: 0}
---- !u!114 &763710491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763710487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341c408caaf07b14abf89d00306292a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisAgent: {fileID: 763710492}
---- !u!114 &763710492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763710487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cdeaab3159b7443956ab824fa430e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: []
-  currentAction: {fileID: 0}
 --- !u!1001 &811564243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3751,6 +3676,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 763710488, guid: 51e437be22296b340954bf6591a60065, type: 3}
+      propertyPath: m_Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 763710488, guid: 51e437be22296b340954bf6591a60065, type: 3}
+      propertyPath: m_Acceleration
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 763710488, guid: 51e437be22296b340954bf6591a60065, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 763710490, guid: 51e437be22296b340954bf6591a60065, type: 3}
+      propertyPath: postConditions.Array.data[0].key
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 177407082141715887, guid: 51e437be22296b340954bf6591a60065,
         type: 3}
       propertyPath: m_RootOrder
@@ -3810,11 +3751,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nurse
-      objectReference: {fileID: 0}
-    - target: {fileID: 2618188073631541129, guid: 51e437be22296b340954bf6591a60065,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51e437be22296b340954bf6591a60065, type: 3}

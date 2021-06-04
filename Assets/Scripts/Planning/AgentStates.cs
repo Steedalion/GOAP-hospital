@@ -10,7 +10,7 @@
         treatPatient,
         patientsWaiting,
         cubiclesAvailabe,
-
+atCubicle,
 
         patientsTreated,
         Waiting

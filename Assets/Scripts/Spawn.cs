@@ -20,8 +20,13 @@ public class Spawn : MonoBehaviour
 
     void SpawnPatient()
     {
-        Instantiate(patientPrefab, this.transform.position, Quaternion.identity);
+        SpawnOne();
         Invoke("SpawnPatient", Random.Range(2, 10));
     }
 
+    [ContextMenu(nameof(SpawnOne))]
+    public void SpawnOne()
+    {
+        Instantiate(patientPrefab, this.transform.position, Quaternion.identity);
+    }
 }

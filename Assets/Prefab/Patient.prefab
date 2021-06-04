@@ -2665,6 +2665,7 @@ GameObject:
   - component: {fileID: 2079217334}
   - component: {fileID: 2079217335}
   - component: {fileID: 453314763}
+  - component: {fileID: 493218465}
   m_Layer: 0
   m_Name: Patient
   m_TagString: Untagged
@@ -2697,8 +2698,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 13.04
-  m_Acceleration: 8
+  m_Speed: 20
+  m_Acceleration: 200
   avoidancePriority: 50
   m_AngularSpeed: 99999
   m_StoppingDistance: 0
@@ -2823,15 +2824,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: GetTreated
   cost: 1
-  duration: 0
+  duration: 3
   target: {fileID: 0}
   targetTag: 
   preConditions:
-  - key: 2
+  - key: 0
     value: 1
   postConditions:
   - key: 1
     value: 1
+  running: 0
+  agent: {fileID: 0}
+--- !u!114 &493218465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881807149238628900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e255af2c12ca2f84382e2582d0c50acd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: GoHome
+  cost: 1
+  duration: 0
+  target: {fileID: 0}
+  targetTag: 
+  preConditions:
+  - key: 1
+    value: 0
+  postConditions:
+  - key: 12
+    value: 0
   running: 0
   agent: {fileID: 0}
 --- !u!1 &7927236269272520591

@@ -13,7 +13,7 @@ public class GoToWaitingRoom : GAction
     {
         GWorld.Instance().WorldStates.IncrementState(AgentStates.patientsWaiting,1);
         GWorld.Instance().Waiting.Add(GetComponent<Patient>());
-        agentBeliefs.AddState(AgentStates.atHospital,1);
+        // agentBeliefs.AddState(AgentStates.atHospital,1);
         return true;
     }
 }

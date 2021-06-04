@@ -643,14 +643,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2079217329, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: m_Speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079217329, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: m_Acceleration
-      value: 200
-      objectReference: {fileID: 0}
+    - target: {fileID: 493218465, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1184113935}
     - target: {fileID: 7880970886039044016, guid: d36c43225f9391e4c8810c98eb7ef85e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1078,7 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: TreatPatient
   cost: 1
-  duration: 0
+  duration: 5
   target: {fileID: 0}
   targetTag: 
   preConditions:
@@ -1086,6 +1082,29 @@ MonoBehaviour:
     value: 0
   postConditions:
   - key: 5
+    value: 0
+  running: 0
+  agent: {fileID: 0}
+--- !u!114 &763710494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763710487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7164a64a1bc2c34190960a279af5d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: TakeBreak
+  cost: 1
+  duration: 2
+  target: {fileID: 669346817}
+  targetTag: 
+  preConditions: []
+  postConditions:
+  - key: 11
     value: 0
   running: 0
   agent: {fileID: 0}
@@ -1175,6 +1194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cubicle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874423910086712904, guid: 1b134b1c5bdecf14e936ab0619fcf833,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5874423910086712904, guid: 1b134b1c5bdecf14e936ab0619fcf833,
         type: 3}
@@ -2394,6 +2418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cubicle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874423910086712904, guid: 1b134b1c5bdecf14e936ab0619fcf833,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5874423910086712904, guid: 1b134b1c5bdecf14e936ab0619fcf833,
         type: 3}
@@ -3752,6 +3781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nurse
       objectReference: {fileID: 0}
+    - target: {fileID: 2618188073631541129, guid: 51e437be22296b340954bf6591a60065,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51e437be22296b340954bf6591a60065, type: 3}
 --- !u!1 &1568256237
@@ -4656,7 +4690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patientPrefab: {fileID: 7881807149238628900, guid: d36c43225f9391e4c8810c98eb7ef85e,
     type: 3}
-  numPatients: 20
+  numPatients: 1
 --- !u!4 &2110980007
 Transform:
   m_ObjectHideFlags: 0

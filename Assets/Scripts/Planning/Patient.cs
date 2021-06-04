@@ -7,12 +7,12 @@ namespace Planning
         {
 
             base.Start();
-            SubGoal s1 = new SubGoal(AgentStates.isWaiting, 1, true);
-            goals.Add(s1,3);
+            SubGoal waiting = new SubGoal(AgentStates.isWaiting, 1, true);
+            goals.Add(waiting,3);
             //TODO: This breaks patient behavior.
 
-            SubGoal s2 = new SubGoal(AgentStates.isTreated, 3, true);
-            goals.Add(s2,5);
+            SubGoal goHome = new SubGoal(AgentStates.atHome, 3, true);
+            goals.Add(goHome,5);
         }
 
     }

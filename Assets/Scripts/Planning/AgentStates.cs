@@ -4,15 +4,16 @@
     {
         isWaiting,
         isTreated,
-        atHospital, 
+        atHospital,
         hasRegistered,
         hasArrived,
         treatPatient,
         patientsWaiting,
         cubiclesAvailabe,
-atCubicle,
-
+        gotPatient,
         patientsTreated,
-        Waiting
+        Waiting,
+        takeBreak,
+        atHome
     }
 }

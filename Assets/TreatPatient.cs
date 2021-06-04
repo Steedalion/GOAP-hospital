@@ -6,11 +6,14 @@ using UnityEngine;
 
 public class TreatPatient : GAction
 {
+    private Cubicle cubicle;
     public override bool PrePerform()
     {
+       
         if (inventory.Contains<Cubicle>())
         {
-            target = inventory.FindResource<Cubicle>().gameObject;
+            cubicle = inventory.FindResource<Cubicle>();
+            target = cubicle.gameObject;
             return true;
         }
         else
@@ -23,6 +26,11 @@ public class TreatPatient : GAction
 
     public override bool PostPerform()
     {
+        if (cubicle!=null)
+        {
+            inventory.RemoveItem(cubicle);
+            GWorld.Instance().Cubicles.Add(cubicle);
+        }
         return true;
     }
 }

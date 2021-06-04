@@ -18,8 +18,8 @@ public abstract class GAction : MonoBehaviour
     public string targetTag;
 
     public WorldState[] preConditions, postConditions;
-    public Dictionary<string, int> preconditions;
-    public Dictionary<string, int> effects;
+    public Dictionary<AgentStates, int> preconditions;
+    public Dictionary<AgentStates, int> effects;
 
     public WorldStates agentBeliefs;
     public bool running = false;
@@ -29,8 +29,8 @@ public abstract class GAction : MonoBehaviour
 
     protected GAction()
     {
-        preconditions = new Dictionary<string, int>();
-        effects = new Dictionary<string, int>();
+        preconditions = new Dictionary<AgentStates, int>();
+        effects = new Dictionary<AgentStates, int>();
         actionName = this.GetType().Name;
     }
 
@@ -62,11 +62,11 @@ public abstract class GAction : MonoBehaviour
         return true;
     }
 
-    public bool IsAchievableGiven(Dictionary<string, int> currentCondition)
+    public bool IsAchievableGiven(Dictionary<AgentStates, int> currentCondition)
     {
         //TODO: Test this.
 
-        foreach (KeyValuePair<string, int> precondition in preconditions)
+        foreach (KeyValuePair<AgentStates, int> precondition in preconditions)
         {
             if (!currentCondition.ContainsKey(precondition.Key))
             {

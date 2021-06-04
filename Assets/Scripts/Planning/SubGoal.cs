@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
+using Planning;
 
 public class SubGoal
 {
-    public Dictionary<string, int> sgoal;
+    public Dictionary<AgentStates, int> sgoal;
     public bool remove;
     
-    public SubGoal(string action, int importance, bool removeable)
+    public SubGoal(AgentStates action, int importance, bool removeable)
     {
-        sgoal = new Dictionary<string, int>();
+        sgoal = new Dictionary<AgentStates, int>();
         sgoal.Add(action,importance);
         remove = removeable;
     }

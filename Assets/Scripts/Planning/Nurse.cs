@@ -1,3 +1,5 @@
+using Planning;
+
 public class Nurse : GAgent
 {
     // Start is called before the first frame update
@@ -5,7 +7,7 @@ public class Nurse : GAgent
     {
 
         base.Start();
-        SubGoal s1 = new SubGoal("treatPatient", 1, true);
+        SubGoal s1 = new SubGoal(AgentStates.treatPatient, 1, true);
         goals.Add(s1,3);
     }
 

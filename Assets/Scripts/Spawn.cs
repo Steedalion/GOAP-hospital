@@ -24,9 +24,4 @@ public class Spawn : MonoBehaviour
         Invoke("SpawnPatient", Random.Range(2, 10));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

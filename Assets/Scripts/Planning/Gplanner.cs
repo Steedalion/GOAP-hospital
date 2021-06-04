@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Gplanner
 {
-    public Queue<GAction> plan(List<GAction> actions, Dictionary<string, int> goal, WorldStates beliefStates)
+    public Queue<GAction> plan(List<GAction> actions, Dictionary<AgentStates, int> goal, WorldStates beliefStates)
     {
         List<GAction> usableActions = actions.Where(gAction => gAction.IsAchievable()).ToList();
 
@@ -55,7 +55,7 @@ public class Gplanner
         return queue;
     }
 
-    private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableActions, Dictionary<string, int> goal)
+    private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableActions, Dictionary<AgentStates, int> goal)
     {
         bool foundPath = false;
 
@@ -63,8 +63,8 @@ public class Gplanner
         {
             if (action.IsAchievableGiven(parent.WorldState))
             {
-                Dictionary<string, int> currentState = new Dictionary<string, int>(parent.WorldState);
-                foreach (KeyValuePair<string, int> effect in action.effects)
+                Dictionary<AgentStates, int> currentState = new Dictionary<AgentStates, int>(parent.WorldState);
+                foreach (KeyValuePair<AgentStates, int> effect in action.effects)
                 {
                     if (!currentState.ContainsKey(effect.Key))
                         currentState.Add(effect.Key, effect.Value);
@@ -90,9 +90,9 @@ public class Gplanner
         return foundPath;
     }
 
-    private bool GoalAchieved(Dictionary<string, int> goal, Dictionary<string, int> currentState)
+    private bool GoalAchieved(Dictionary<AgentStates, int> goal, Dictionary<AgentStates, int> currentState)
     {
-        foreach (KeyValuePair<string, int> pair in goal)
+        foreach (KeyValuePair<AgentStates, int> pair in goal)
         {
             if (!currentState.ContainsKey(pair.Key))
             {

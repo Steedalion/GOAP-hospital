@@ -6,7 +6,7 @@ namespace Planning.PlanningEditTests
     public class WorldStatesTests
     {
         private WorldStates worldStates;
-        private string basicState = "name";
+        private AgentStates basicState = AgentStates.cubiclesAvailabe;
         private int initialValue = 3;
 
         [SetUp]

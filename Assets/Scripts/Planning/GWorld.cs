@@ -13,9 +13,9 @@ namespace Planning
 
         private void UpdateStates()
         {
-            WorldStates.UpdateState(nameof(Waiting),  Waiting.Size());
-            WorldStates.UpdateState(nameof(Cubicles), Cubicles.Size());
-            WorldStates.UpdateState(nameof(isTreated), isTreated.Size());
+            WorldStates.UpdateState(AgentStates.patientsWaiting,  Waiting.Size());
+            WorldStates.UpdateState(AgentStates.cubiclesAvailabe, Cubicles.Size());
+            WorldStates.UpdateState(AgentStates.patientsTreated, isTreated.Size());
         }
 
 

@@ -643,6 +643,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 453314763, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
+      propertyPath: preConditions.Array.data[0].key
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 453314763, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
+      propertyPath: postConditions.Array.data[0].key
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2079217329, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
       propertyPath: m_Speed
       value: 13.04
@@ -650,6 +658,22 @@ PrefabInstance:
     - target: {fileID: 2079217329, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
       propertyPath: m_AngularSpeed
       value: 99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079217331, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
+      propertyPath: postConditions.Array.data[0].key
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079217333, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
+      propertyPath: preConditions.Array.data[0].key
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079217334, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
+      propertyPath: preConditions.Array.data[0].key
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079217334, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
+      propertyPath: postConditions.Array.data[0].key
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7880970886039044016, guid: d36c43225f9391e4c8810c98eb7ef85e,
         type: 3}
@@ -959,8 +983,9 @@ Transform:
   - {fileID: 1042095032}
   - {fileID: 871944020}
   - {fileID: 1500687025}
+  - {fileID: 1184113939}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743622680
 GameObject:
@@ -1103,12 +1128,12 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTag: WaitingArea
   preConditions:
-  - key: Waiting
+  - key: 6
     value: 1
-  - key: Cubicles
+  - key: 2
     value: 1
   postConditions:
-  - key: treatPatient
+  - key: 5
     value: 0
   running: 0
   agent: {fileID: 0}
@@ -2154,12 +2179,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184113935}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.9, y: 0.45, z: -74.2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 58.56021, y: -1.1333334, z: -50.36638}
   m_LocalScale: {x: 2.2797298, y: 5.54424, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 742992260}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1203368121
 GameObject:
@@ -4708,7 +4733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146182846
 GameObject:

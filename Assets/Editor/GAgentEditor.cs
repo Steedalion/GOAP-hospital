@@ -2,6 +2,7 @@
 using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
+using Planning;
 
 [CustomEditor(typeof(GAgentVisual))]
 [CanEditMultipleObjects]
@@ -29,9 +30,9 @@ public class GAgentVisualEditor : Editor
             string pre = "";
             string eff = "";
 
-            foreach (KeyValuePair<string, int> p in a.preconditions)
+            foreach (KeyValuePair<AgentStates, int> p in a.preconditions)
                 pre += p.Key + ", ";
-            foreach (KeyValuePair<string, int> e in a.effects)
+            foreach (KeyValuePair<AgentStates, int> e in a.effects)
                 eff += e.Key + ", ";
 
             GUILayout.Label(i+"===  " + a.actionName + "(" + pre + ")(" + eff + ")");
@@ -42,7 +43,7 @@ public class GAgentVisualEditor : Editor
         foreach (KeyValuePair<SubGoal, int> g in agent.gameObject.GetComponent<GAgent>().goals)
         {
             GUILayout.Label("---: ");
-            foreach (KeyValuePair<string, int> sg in g.Key.sgoal)
+            foreach (KeyValuePair<AgentStates, int> sg in g.Key.sgoal)
                 GUILayout.Label("=====  " + sg.Key);
         }
         serializedObject.ApplyModifiedProperties();

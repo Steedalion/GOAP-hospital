@@ -25,7 +25,7 @@
             }
             inventory.AddItem(cubicle);
             
-            GWorld.Instance().WorldStates.IncrementState("Waiting",-1);
+            GWorld.Instance().WorldStates.IncrementState(AgentStates.Waiting,-1);
             return true;
         }
 

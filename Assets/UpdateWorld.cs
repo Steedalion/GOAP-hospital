@@ -8,7 +8,7 @@ public class UpdateWorld : MonoBehaviour
 {
     public Text states;
 
-    private Dictionary<string, int> worldstates;
+    private Dictionary<AgentStates, int> worldstates;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class UpdateWorld : MonoBehaviour
     {
         worldstates = GWorld.Instance().WorldStates.States;
         states.text = "";
-        foreach (KeyValuePair<string,int> keyValuePair in worldstates)
+        foreach (KeyValuePair<AgentStates,int> keyValuePair in worldstates)
         {
             states.text += keyValuePair.Key + " , " + keyValuePair.Value;
             states.text += "\n";

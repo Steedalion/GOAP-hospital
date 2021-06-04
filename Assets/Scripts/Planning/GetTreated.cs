@@ -7,7 +7,11 @@ namespace Planning
         private Cubicle cubicle;
         public override bool PrePerform()
         {
-            if (!inventory.Contains<Cubicle>()) return false;
+            if (!inventory.Contains<Cubicle>())
+            {
+                Debug.Log( "No cubicle in inventory");
+                return false;
+            }
             
             cubicle = inventory.FindResource<Cubicle>();
             target = cubicle.gameObject;

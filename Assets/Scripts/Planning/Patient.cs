@@ -11,8 +11,8 @@ namespace Planning
             goals.Add(s1,3);
             //TODO: This breaks patient behavior.
 
-            // SubGoal s2 = new SubGoal("isTreated", 3, true);
-            // goals.Add(s2,5);
+            SubGoal s2 = new SubGoal("isTreated", 3, true);
+            goals.Add(s2,5);
         }
 
     }

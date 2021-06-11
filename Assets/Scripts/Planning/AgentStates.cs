@@ -13,8 +13,9 @@
         gotPatient,
         patientsTreated,
         Waiting,
-        takeBreak,
+        rested,
         atHome,
-        IAmCured
+        IAmCured,
+        IAmTired
     }
 }

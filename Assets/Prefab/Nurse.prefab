@@ -1022,6 +1022,8 @@ GameObject:
   - component: {fileID: 763710490}
   - component: {fileID: 763710491}
   - component: {fileID: 763710492}
+  - component: {fileID: 763710493}
+  - component: {fileID: 763710494}
   m_Layer: 0
   m_Name: Nurse
   m_TagString: Untagged
@@ -1054,10 +1056,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 20
+  m_Acceleration: 200
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 99999
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1086,10 +1088,8 @@ MonoBehaviour:
   preConditions:
   - key: 6
     value: 1
-  - key: 2
-    value: 1
   postConditions:
-  - key: 5
+  - key: 8
     value: 0
   running: 0
   agent: {fileID: 0}
@@ -1120,6 +1120,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actions: []
   currentAction: {fileID: 0}
+--- !u!114 &763710493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2618188073631541129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1fc0dc539444a4cb753a2172449436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: TreatPatient
+  cost: 1
+  duration: 5
+  target: {fileID: 0}
+  targetTag: 
+  preConditions:
+  - key: 8
+    value: 0
+  postConditions:
+  - key: 5
+    value: 0
+  running: 0
+  agent: {fileID: 0}
+--- !u!114 &763710494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2618188073631541129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7164a64a1bc2c34190960a279af5d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: TakeBreak
+  cost: 1
+  duration: 2
+  target: {fileID: 0}
+  targetTag: 
+  preConditions:
+  - key: 14
+    value: 0
+  postConditions:
+  - key: 11
+    value: 0
+  running: 0
+  agent: {fileID: 0}
 --- !u!1 &2629889911763255196
 GameObject:
   m_ObjectHideFlags: 0

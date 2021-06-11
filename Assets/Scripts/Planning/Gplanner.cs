@@ -65,9 +65,9 @@ public class Gplanner
 
         foreach (GAction action in usableActions)
         {
-            if (action.IsAchievableGiven(parent.WorldState))
+            if (action.IsAchievableGiven(parent.worldNow))
             {
-                Dictionary<AgentStates, int> currentState = new Dictionary<AgentStates, int>(parent.WorldState);
+                Dictionary<AgentStates, int> currentState = new Dictionary<AgentStates, int>(parent.worldNow);
                 foreach (KeyValuePair<AgentStates, int> effect in action.effects)
                 {
                     if (!currentState.ContainsKey(effect.Key))

@@ -643,10 +643,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 493218465, guid: d36c43225f9391e4c8810c98eb7ef85e, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1184113935}
     - target: {fileID: 7880970886039044016, guid: d36c43225f9391e4c8810c98eb7ef85e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3718,6 +3714,10 @@ PrefabInstance:
       value: 99999
       objectReference: {fileID: 0}
     - target: {fileID: 763710490, guid: 51e437be22296b340954bf6591a60065, type: 3}
+      propertyPath: preConditions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 763710490, guid: 51e437be22296b340954bf6591a60065, type: 3}
       propertyPath: postConditions.Array.data[0].key
       value: 8
       objectReference: {fileID: 0}
@@ -4675,7 +4675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2110980006
 MonoBehaviour:
   m_ObjectHideFlags: 0

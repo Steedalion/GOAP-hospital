@@ -21,6 +21,7 @@ namespace Planning
         public override bool PostPerform()
         {
             GWorld.Instance().isTreated.Add(GetComponent<Patient>());
+            agentBeliefs.AddState(AgentStates.IAmCured,1);
             if (cubicle != null)
             {
                 inventory.RemoveItem(cubicle);

@@ -13,7 +13,7 @@ public class Node
     {
         this.parent = parent;
         this.cost = cost;
-        this.WorldState = worldState;
+        WorldState = new Dictionary<AgentStates, int>(worldState);
         this.action = action;
     }
 
@@ -22,15 +22,15 @@ public class Node
     {
         this.parent = parent;
         this.cost = cost;
-        this.WorldState = worldState;
+        WorldState = new Dictionary<AgentStates, int>(worldState);
         this.action = action;
 
         //add belief states to world states.
         foreach (KeyValuePair<AgentStates, int> keyValuePair in beliefStates)
         {
-            if (this.WorldState.ContainsKey(keyValuePair.Key))
+            if (WorldState.ContainsKey(keyValuePair.Key))
                 return;
-            this.WorldState.Add(keyValuePair.Key, keyValuePair.Value);
+            WorldState.Add(keyValuePair.Key, keyValuePair.Value);
         }
     }
 }

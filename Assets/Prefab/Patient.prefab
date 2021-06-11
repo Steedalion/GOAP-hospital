@@ -2659,11 +2659,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7880970886039044016}
   - component: {fileID: 2079217329}
-  - component: {fileID: 2079217331}
   - component: {fileID: 2079217332}
+  - component: {fileID: 2079217335}
+  - component: {fileID: 2079217331}
   - component: {fileID: 2079217333}
   - component: {fileID: 2079217334}
-  - component: {fileID: 2079217335}
   - component: {fileID: 453314763}
   - component: {fileID: 493218465}
   m_Layer: 0
@@ -2710,6 +2710,33 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2079217332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881807149238628900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79209392b567e4f4eb3422e8d656b396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actions: []
+  currentAction: {fileID: 0}
+--- !u!114 &2079217335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881807149238628900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341c408caaf07b14abf89d00306292a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisAgent: {fileID: 2079217332}
 --- !u!114 &2079217331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,20 +2760,6 @@ MonoBehaviour:
     value: 0
   running: 0
   agent: {fileID: 0}
---- !u!114 &2079217332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7881807149238628900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79209392b567e4f4eb3422e8d656b396, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actions: []
-  currentAction: {fileID: 0}
 --- !u!114 &2079217333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2797,19 +2810,6 @@ MonoBehaviour:
     value: 0
   running: 0
   agent: {fileID: 0}
---- !u!114 &2079217335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7881807149238628900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 341c408caaf07b14abf89d00306292a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisAgent: {fileID: 2079217332}
 --- !u!114 &453314763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2828,7 +2828,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTag: 
   preConditions:
-  - key: 0
+  - key: 2
     value: 1
   postConditions:
   - key: 1
@@ -2851,7 +2851,7 @@ MonoBehaviour:
   cost: 1
   duration: 0
   target: {fileID: 0}
-  targetTag: 
+  targetTag: Home
   preConditions:
   - key: 1
     value: 0

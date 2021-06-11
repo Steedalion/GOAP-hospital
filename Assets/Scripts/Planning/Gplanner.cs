@@ -12,6 +12,9 @@ public class Gplanner
         List<GAction> usableActions = actions.Where(gAction => gAction.IsAchievable()).ToList();
 
         List<Node> leaves = new List<Node>();
+        // Node start = new Node(parent: null, cost: 0, new Dictionary<AgentStates, int>(GWorld.Instance().WorldStates.States), beliefStates.States, null);
+
+        
         Node start = new Node(parent: null, cost: 0, GWorld.Instance().WorldStates.States, beliefStates.States, null);
 
         bool success = BuildGraph(start, leaves, usableActions, goal);
@@ -55,7 +58,8 @@ public class Gplanner
         return queue;
     }
 
-    private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableActions, Dictionary<AgentStates, int> goal)
+    private bool BuildGraph(Node parent, List<Node> leaves, List<GAction> usableActions,
+        Dictionary<AgentStates, int> goal)
     {
         bool foundPath = false;
 

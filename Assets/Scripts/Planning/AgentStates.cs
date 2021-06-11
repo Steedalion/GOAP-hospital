@@ -14,6 +14,7 @@
         patientsTreated,
         Waiting,
         takeBreak,
-        atHome
+        atHome,
+        IAmCured
     }
 }
